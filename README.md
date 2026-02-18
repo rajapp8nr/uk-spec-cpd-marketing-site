@@ -20,3 +20,26 @@ Then visit: `http://localhost:8080`
   - `sitemap.xml`
 - Update `hello@example.com` CTA email in `index.html`
 - Optionally add a custom OG image and favicon assets
+
+## Deployment (Task 2)
+
+This repo is ready for **Vercel** or **Netlify** static deployment.
+
+### Vercel
+
+1. Import repo in Vercel: `rajapp8nr/uk-spec-cpd-marketing-site`
+2. Framework preset: **Other**
+3. Build command: *(leave empty)*
+4. Output directory: `.`
+5. Deploy
+
+`vercel.json` is included for clean URLs and security headers.
+
+### Netlify
+
+1. Import repo in Netlify
+2. Build command: *(leave empty)*
+3. Publish directory: `.`
+4. Deploy
+
+`netlify.toml` is included and configured for static publish + SPA-style fallback.
