@@ -22,186 +22,184 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      :root { color-scheme: light; }
-      html { scroll-behavior: smooth; }
       body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-      .section-anchor { scroll-margin-top: 88px; }
+      html { scroll-behavior: smooth; }
     </style>
   </head>
-  <body class="bg-slate-50 text-slate-800 antialiased">
+  <body class="bg-white text-slate-900 antialiased">
     <header class="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur">
-      <div class="mx-auto flex max-w-[1440px] items-center gap-4 px-4 py-3 sm:px-6">
-        <a href="#" class="flex items-center gap-2 text-sm font-semibold text-slate-900">
-          <span class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-slate-900 text-xs text-white">U</span>
-          UK-SPEC CPD Portal
-        </a>
-
-        <div class="ml-auto hidden flex-1 max-w-xl md:block">
-          <label class="relative block">
-            <span class="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">⌕</span>
-            <input type="text" placeholder="Search docs, workflows, pricing..." class="w-full rounded-lg border border-slate-200 bg-slate-50 py-2 pl-9 pr-3 text-sm placeholder:text-slate-400 focus:border-slate-300 focus:bg-white focus:outline-none" />
-          </label>
-        </div>
-
-        <a href="#cta" class="rounded-lg bg-slate-900 px-3 py-2 text-xs font-medium text-white hover:bg-slate-700 sm:text-sm">Book demo</a>
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <a href="#" class="text-lg font-semibold tracking-tight">UK-SPEC CPD Portal</a>
+        <nav class="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+          <a href="#features" class="hover:text-slate-900">Features</a>
+          <a href="#pricing" class="hover:text-slate-900">Pricing</a>
+          <a href="#testimonials" class="hover:text-slate-900">Customers</a>
+          <a href="#faq" class="hover:text-slate-900">FAQ</a>
+        </nav>
+        <a href="#cta" class="rounded-lg bg-slate-900 px-4 py-2 text-sm font-medium text-white hover:bg-slate-700">Book demo</a>
       </div>
     </header>
 
-    <div class="mx-auto grid max-w-[1440px] grid-cols-1 lg:grid-cols-[280px_minmax(0,1fr)_240px]">
-      <aside class="border-b border-slate-200 bg-white lg:min-h-[calc(100vh-57px)] lg:border-b-0 lg:border-r">
-        <div class="px-4 py-5 sm:px-6 lg:sticky lg:top-[57px] lg:max-h-[calc(100vh-57px)] lg:overflow-y-auto">
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Navigation</p>
+    <main>
+      <section class="border-b border-slate-200 bg-slate-50/70">
+        <div class="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-2 lg:items-center">
+          <div>
+            <p class="inline-flex rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold text-slate-600">Built for engineering employers in the UK</p>
+            <h1 class="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">The easiest way to run a <span class="text-slate-600">high-performing CEng/IEng pipeline</span></h1>
+            <p class="mt-5 max-w-xl text-lg leading-8 text-slate-600">Standardise UK-SPEC evidence capture, manager sign-off, and candidate readiness in one place—without adding admin overhead.</p>
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="#cta" class="rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white hover:bg-slate-700">Book a 20-min demo</a>
+              <a href="#pricing" class="rounded-lg border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100">See pricing</a>
+            </div>
+            <p class="mt-4 text-sm text-slate-500">Start with one team • Prove ROI • Scale across business units</p>
+          </div>
 
-          <details open class="mt-3 group">
-            <summary class="flex cursor-pointer list-none items-center justify-between rounded-md px-2 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:bg-slate-100">
-              Product
-              <span class="text-slate-400 transition group-open:rotate-90">›</span>
-            </summary>
-            <nav class="mt-1 space-y-1 text-sm" data-nav-group>
-              <a href="#overview" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Overview</a>
-              <a href="#features" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Core features</a>
-              <a href="#who" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Who it’s for</a>
-            </nav>
-          </details>
-
-          <details open class="mt-2 group">
-            <summary class="flex cursor-pointer list-none items-center justify-between rounded-md px-2 py-2 text-xs font-semibold uppercase tracking-wide text-slate-500 hover:bg-slate-100">
-              Commercial
-              <span class="text-slate-400 transition group-open:rotate-90">›</span>
-            </summary>
-            <nav class="mt-1 space-y-1 text-sm" data-nav-group>
-              <a href="#pricing" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Pricing</a>
-              <a href="#faq" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">FAQ</a>
-              <a href="#cta" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Get started</a>
-            </nav>
-          </details>
-
-          <div class="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
-            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Quick summary</p>
-            <ul class="mt-3 space-y-2 text-xs text-slate-600">
-              <li>• UK-SPEC mapping (A–E)</li>
-              <li>• Manager sign-off + audit trail</li>
-              <li>• Export-ready evidence packs</li>
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">What improves in 90 days</p>
+            <ul class="mt-4 space-y-3 text-sm text-slate-700">
+              <li>✅ Competency-mapped evidence logging (A–E)</li>
+              <li>✅ Structured manager and mentor review workflows</li>
+              <li>✅ Readiness scoring and gap visibility</li>
+              <li>✅ Export-ready evidence packs for applications</li>
+              <li>✅ Better leadership reporting on registration pipeline</li>
             </ul>
           </div>
         </div>
-      </aside>
+      </section>
 
-      <main class="min-w-0 px-4 py-8 sm:px-6 lg:px-10 lg:py-10">
-        <section id="overview" class="section-anchor rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Overview</p>
-          <h1 class="mt-3 text-3xl font-bold tracking-tight text-slate-900 sm:text-[2.05rem]">A documentation-first home for your UK-SPEC workflow</h1>
-          <p class="mt-4 max-w-3xl text-[15px] leading-7 text-slate-600">Give engineering teams a clear route to CEng/IEng without admin overload. Standardise evidence capture, manager sign-off, and readiness visibility across business units.</p>
-
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#cta" class="rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-slate-700">Book a 20-min demo</a>
-            <a href="#pricing" class="rounded-lg border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-700 hover:bg-slate-100">See pilot pricing</a>
-          </div>
-        </section>
-
-        <section id="features" class="section-anchor mt-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <h2 class="text-[1.55rem] font-bold text-slate-900">Core features</h2>
-          <p class="mt-2 text-[15px] text-slate-600">Everything needed to support candidate progression and director-level visibility.</p>
-          <div class="mt-6 grid gap-4 md:grid-cols-2">
-            <article class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">Registration pipeline visibility</h3><p class="mt-1 text-sm text-slate-600">Track competency coverage, evidence recency, and readiness across teams.</p></article>
-            <article class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">Mentor and manager workflows</h3><p class="mt-1 text-sm text-slate-600">Structured review queues, comments, approvals, and clear ownership.</p></article>
-            <article class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">UK-SPEC competency mapping</h3><p class="mt-1 text-sm text-slate-600">Map every entry to competencies A–E to improve consistency and evidence quality.</p></article>
-            <article class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">Export-ready packs</h3><p class="mt-1 text-sm text-slate-600">Generate polished evidence packs for applications and interview prep.</p></article>
-          </div>
-        </section>
-
-        <section id="who" class="section-anchor mt-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <h2 class="text-[1.55rem] font-bold text-slate-900">Who it’s for</h2>
-          <div class="mt-5 grid gap-4 md:grid-cols-3">
-            <div class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">Engineering employers</h3><p class="mt-1 text-sm text-slate-600">Improve retention through structured pathways and better visibility.</p></div>
-            <div class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">Candidates</h3><p class="mt-1 text-sm text-slate-600">Capture evidence while work is fresh and avoid last-minute scramble.</p></div>
-            <div class="rounded-xl border border-slate-200 p-4"><h3 class="font-semibold text-slate-900">Managers & mentors</h3><p class="mt-1 text-sm text-slate-600">Coach with confidence using competency-level progression data.</p></div>
-          </div>
-        </section>
-
-        <section id="pricing" class="section-anchor mt-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <h2 class="text-[1.55rem] font-bold text-slate-900">Pricing</h2>
-          <div class="mt-5 grid gap-4 lg:grid-cols-2">
-            <div class="rounded-xl border border-slate-200 p-5">
-              <h3 class="text-lg font-semibold text-slate-900">Pilot</h3>
-              <p class="mt-1 text-sm text-slate-600">For teams validating process and adoption.</p>
-              <p class="mt-4 text-3xl font-bold text-slate-900">From £299<span class="text-base font-medium text-slate-500"> / month</span></p>
-              <ul class="mt-4 space-y-1 text-sm text-slate-700"><li>• Up to 25 candidates</li><li>• Review workflows</li><li>• UK-SPEC tracking</li><li>• PDF exports</li></ul>
-            </div>
-            <div class="rounded-xl border border-slate-900 bg-slate-900 p-5 text-white">
-              <h3 class="text-lg font-semibold">Organisation</h3>
-              <p class="mt-1 text-sm text-slate-300">For scaling across business units.</p>
-              <p class="mt-4 text-3xl font-bold">Custom</p>
-              <ul class="mt-4 space-y-1 text-sm text-slate-200"><li>• Multi-team deployment</li><li>• Advanced reporting</li><li>• Priority onboarding</li><li>• SSO roadmap support</li></ul>
-            </div>
-          </div>
-        </section>
-
-        <section id="faq" class="section-anchor mt-8 rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-          <h2 class="text-[1.55rem] font-bold text-slate-900">Frequently asked questions</h2>
-          <div class="mt-5 space-y-3">
-            <details class="rounded-lg border border-slate-200 p-4"><summary class="cursor-pointer font-medium text-slate-900">Is this officially integrated with ICE or IET portals?</summary><p class="mt-2 text-sm text-slate-600">It’s UK-SPEC aligned and export-ready; direct institutional integrations can be scoped separately.</p></details>
-            <details class="rounded-lg border border-slate-200 p-4"><summary class="cursor-pointer font-medium text-slate-900">Can candidates and managers both use it?</summary><p class="mt-2 text-sm text-slate-600">Yes. Candidates log evidence while managers and mentors review and guide progression.</p></details>
-            <details class="rounded-lg border border-slate-200 p-4"><summary class="cursor-pointer font-medium text-slate-900">Can we run a pilot first?</summary><p class="mt-2 text-sm text-slate-600">Absolutely — most teams start with one unit and scale after proving outcomes.</p></details>
-          </div>
-        </section>
-
-        <section id="cta" class="section-anchor mt-8 rounded-2xl border border-slate-900 bg-slate-900 p-6 text-white sm:p-8">
-          <h2 class="text-2xl font-bold">Ready to improve your professional registration pipeline?</h2>
-          <p class="mt-2 max-w-2xl text-sm text-slate-300">Book a short demo and see how your team can move from ad-hoc notes to a clear UK-SPEC evidence journey.</p>
-          <a href="mailto:hello@example.com?subject=UK-SPEC%20CPD%20Portal%20Demo" class="mt-5 inline-flex rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-slate-900 hover:bg-slate-200">Book your demo</a>
-        </section>
-
-        <footer class="mt-8 pb-3 text-xs text-slate-500">© <span id="year"></span> UK-SPEC CPD Portal. Built for engineering career progression in the UK.</footer>
-      </main>
-
-      <aside class="hidden border-l border-slate-200 bg-white lg:block">
-        <div class="sticky top-[57px] max-h-[calc(100vh-57px)] overflow-y-auto p-5">
-          <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">On this page</p>
-          <nav class="mt-3 space-y-1 text-sm" id="toc">
-            <a href="#overview" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Overview</a>
-            <a href="#features" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Core features</a>
-            <a href="#who" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Who it’s for</a>
-            <a href="#pricing" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Pricing</a>
-            <a href="#faq" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">FAQ</a>
-            <a href="#cta" data-nav-link class="block rounded-md px-3 py-2 text-slate-600 hover:bg-slate-100 hover:text-slate-900">Get started</a>
-          </nav>
+      <section id="features" class="mx-auto max-w-7xl px-6 py-16">
+        <div class="max-w-3xl">
+          <h2 class="text-3xl font-bold tracking-tight">Everything you need to improve registration outcomes</h2>
+          <p class="mt-3 text-slate-600">A clean, practical workflow for candidates, mentors, and engineering leadership.</p>
         </div>
-      </aside>
-    </div>
+
+        <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <article class="rounded-xl border border-slate-200 p-5">
+            <h3 class="font-semibold">UK-SPEC competency mapping</h3>
+            <p class="mt-2 text-sm text-slate-600">Map each entry against A–E so evidence quality stays consistent.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-5">
+            <h3 class="font-semibold">Manager & mentor reviews</h3>
+            <p class="mt-2 text-sm text-slate-600">Comments, approvals, and audit trail in one clear workflow.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-5">
+            <h3 class="font-semibold">Candidate dashboards</h3>
+            <p class="mt-2 text-sm text-slate-600">See progress, competency gaps, and next actions at a glance.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-5">
+            <h3 class="font-semibold">Leadership reporting</h3>
+            <p class="mt-2 text-sm text-slate-600">Track readiness by team, office, or business unit.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-5">
+            <h3 class="font-semibold">Export-ready evidence packs</h3>
+            <p class="mt-2 text-sm text-slate-600">Generate polished outputs for applications and interview prep.</p>
+          </article>
+          <article class="rounded-xl border border-slate-200 p-5">
+            <h3 class="font-semibold">Low-friction rollout</h3>
+            <p class="mt-2 text-sm text-slate-600">Start small with a pilot and scale once outcomes are proven.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="border-y border-slate-200 bg-slate-50/70">
+        <div class="mx-auto max-w-7xl px-6 py-16">
+          <div class="grid gap-8 lg:grid-cols-2">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 class="text-xl font-semibold">Competing on value, not enterprise complexity</h3>
+              <p class="mt-3 text-slate-600">Like Neeto’s philosophy, we keep implementation practical and pricing straightforward. No bloated setup, no unnecessary modules.</p>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-6">
+              <h3 class="text-xl font-semibold">Built for engineering directors</h3>
+              <p class="mt-3 text-slate-600">You get visibility into progression and mentor load while candidates get a simple, repeatable evidence workflow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="mx-auto max-w-7xl px-6 py-16">
+        <h2 class="text-3xl font-bold tracking-tight">Simple pricing</h2>
+        <div class="mt-8 grid gap-6 lg:grid-cols-2">
+          <div class="rounded-2xl border border-slate-200 p-6">
+            <h3 class="text-xl font-semibold">Pilot</h3>
+            <p class="mt-2 text-sm text-slate-600">For teams validating process and adoption.</p>
+            <p class="mt-5 text-4xl font-bold">From £299<span class="text-base font-medium text-slate-500"> / month</span></p>
+            <ul class="mt-6 space-y-2 text-sm text-slate-700">
+              <li>• Up to 25 candidates</li>
+              <li>• Manager review workflows</li>
+              <li>• UK-SPEC competency tracking</li>
+              <li>• Export-ready PDFs</li>
+            </ul>
+          </div>
+          <div class="rounded-2xl border border-slate-900 bg-slate-900 p-6 text-white">
+            <h3 class="text-xl font-semibold">Organisation</h3>
+            <p class="mt-2 text-sm text-slate-300">For scaling across teams and business units.</p>
+            <p class="mt-5 text-4xl font-bold">Custom</p>
+            <ul class="mt-6 space-y-2 text-sm text-slate-200">
+              <li>• Multi-team deployment</li>
+              <li>• Advanced readiness reporting</li>
+              <li>• Priority onboarding support</li>
+              <li>• SSO roadmap support</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="border-y border-slate-200 bg-slate-50/70">
+        <div class="mx-auto max-w-7xl px-6 py-16">
+          <h2 class="text-3xl font-bold tracking-tight">What teams say</h2>
+          <div class="mt-8 grid gap-5 md:grid-cols-3">
+            <blockquote class="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
+              “We finally have a consistent process for CEng evidence across our offices.”
+              <footer class="mt-3 text-xs text-slate-500">Engineering Director, Infrastructure Consultancy</footer>
+            </blockquote>
+            <blockquote class="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
+              “Mentor reviews are faster and candidates always know their next step.”
+              <footer class="mt-3 text-xs text-slate-500">Head of Professional Development</footer>
+            </blockquote>
+            <blockquote class="rounded-xl border border-slate-200 bg-white p-5 text-sm text-slate-700">
+              “The export packs cut prep time massively before submission windows.”
+              <footer class="mt-3 text-xs text-slate-500">Discipline Lead, Civil Engineering</footer>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="mx-auto max-w-7xl px-6 py-16">
+        <h2 class="text-3xl font-bold tracking-tight">Frequently asked questions</h2>
+        <div class="mt-8 space-y-4">
+          <details class="rounded-xl border border-slate-200 p-5">
+            <summary class="cursor-pointer font-medium">Is this officially integrated with ICE or IET submission portals?</summary>
+            <p class="mt-2 text-sm text-slate-600">The platform is UK-SPEC aligned and export-ready for application workflows. Direct integrations can be scoped separately.</p>
+          </details>
+          <details class="rounded-xl border border-slate-200 p-5">
+            <summary class="cursor-pointer font-medium">Can candidates and managers both use the system?</summary>
+            <p class="mt-2 text-sm text-slate-600">Yes. Candidates log evidence and CPD, while managers and mentors review progression and provide structured feedback.</p>
+          </details>
+          <details class="rounded-xl border border-slate-200 p-5">
+            <summary class="cursor-pointer font-medium">Can we pilot first before a full rollout?</summary>
+            <p class="mt-2 text-sm text-slate-600">Absolutely. Most customers start with one business unit and expand after proving improved readiness.</p>
+          </details>
+        </div>
+      </section>
+
+      <section id="cta" class="bg-slate-900 text-white">
+        <div class="mx-auto max-w-7xl px-6 py-16 text-center">
+          <h2 class="text-3xl font-bold tracking-tight">Ready to improve your professional registration pipeline?</h2>
+          <p class="mx-auto mt-3 max-w-2xl text-slate-300">Book a short demo and we’ll show how your team can move from ad-hoc notes to a clear UK-SPEC evidence journey.</p>
+          <a href="mailto:hello@example.com?subject=UK-SPEC%20CPD%20Portal%20Demo" class="mt-8 inline-flex rounded-lg bg-white px-6 py-3 text-sm font-semibold text-slate-900 hover:bg-slate-200">Book your demo</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto flex max-w-7xl flex-col gap-2 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="year"></span> UK-SPEC CPD Portal. All rights reserved.</p>
+        <p>Built for engineering career progression in the UK.</p>
+      </div>
+    </footer>
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
-
-      const sectionIds = ["overview", "features", "who", "pricing", "faq", "cta"];
-      const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
-      const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-
-      function setActive(id) {
-        navLinks.forEach((link) => {
-          const isActive = link.getAttribute("href") === `#${id}`;
-          link.classList.toggle("bg-slate-100", isActive);
-          link.classList.toggle("text-slate-900", isActive);
-          link.classList.toggle("font-medium", isActive);
-          if (!isActive) {
-            link.classList.remove("font-medium");
-            if (!link.classList.contains("hover:bg-slate-100")) link.classList.add("hover:bg-slate-100");
-          }
-        });
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          const visible = entries
-            .filter((entry) => entry.isIntersecting)
-            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-          if (visible[0]) setActive(visible[0].target.id);
-        },
-        { rootMargin: "-90px 0px -55% 0px", threshold: [0.2, 0.4, 0.6] }
-      );
-
-      sections.forEach((section) => observer.observe(section));
-      setActive("overview");
     </script>
   </body>
 </html>
