@@ -1,6 +1,6 @@
-# UK-SPEC CPD Marketing Site
+# CPDPath Marketing Site
 
-Professional, SEO-friendly marketing website for the UK-SPEC CPD Portal.
+SEO-focused marketing website for **CPDPath** (`cpdpath.com`).
 
 ## Local preview
 
@@ -12,34 +12,39 @@ python3 -m http.server 8080
 
 Then visit: `http://localhost:8080`
 
-## Notes before launch
+## Production domain checklist
 
-- Replace `https://example.com` in:
-  - `index.html` (canonical + OG URL)
-  - `robots.txt`
-  - `sitemap.xml`
-- Update `hello@example.com` CTA email in `index.html`
-- Optionally add a custom OG image and favicon assets
+- Canonical + OG URLs point to `https://cpdpath.com/`
+- `robots.txt` points to `https://cpdpath.com/sitemap.xml`
+- CTA/contact emails should use `hello@cpdpath.com`
+- Submit sitemap to Google Search Console and Bing Webmaster Tools
 
-## Deployment (Task 2)
+## Cloudflare Workers deployment
 
-This repo is ready for **Vercel** or **Netlify** static deployment.
+This repo is configured for **Cloudflare Workers static assets** via Wrangler.
 
-### Vercel
+### Files used
 
-1. Import repo in Vercel: `rajapp8nr/uk-spec-cpd-marketing-site`
-2. Framework preset: **Other**
-3. Build command: *(leave empty)*
-4. Output directory: `.`
-5. Deploy
+- `wrangler.toml`
+- `src/worker.js`
 
-`vercel.json` is included for clean URLs and security headers.
+### Deploy
 
-### Netlify
+```bash
+# one-time auth
+wrangler login
 
-1. Import repo in Netlify
-2. Build command: *(leave empty)*
-3. Publish directory: `.`
-4. Deploy
+# deploy
+wrangler deploy
+```
 
-`netlify.toml` is included and configured for static publish + SPA-style fallback.
+### Optional: custom domain
+
+In Cloudflare dashboard, attach `cpdpath.com` to this Worker route.
+
+## SEO trust pages included
+
+- `/privacy.html`
+- `/terms.html`
+- `/contact.html`
+- `/thank-you.html` (conversion page, noindex)
