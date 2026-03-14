@@ -153,7 +153,7 @@
           <a href="#testimonials" class="hover:text-slate-900">Customers</a>
           <a href="#faq" class="hover:text-slate-900">FAQ</a>
         </nav>
-        <a href="#cta" class="btn-primary px-4 py-2 text-sm">Book demo</a>
+        <a href="#cta" data-cta="nav_book_demo" class="btn-primary px-4 py-2 text-sm">Book demo</a>
       </div>
     </header>
 
@@ -167,8 +167,8 @@
             <h1 class="mt-6 text-4xl font-bold tracking-tight sm:text-[3.35rem] sm:leading-[1.05]">The easiest way to run a <span class="text-slate-600">high-performing CEng/IEng pipeline</span></h1>
             <p class="mt-5 max-w-xl text-lg leading-8 text-slate-600">Standardise UK-SPEC evidence capture, manager sign-off, and candidate readiness in one place—without adding admin overhead.</p>
             <div class="mt-8 flex flex-wrap gap-3">
-              <a href="#cta" class="btn-primary px-5 py-3 text-sm">Get your 20-min readiness walkthrough</a>
-              <a href="#lead-magnet" class="btn-secondary px-5 py-3 text-sm">Download free checklist</a>
+              <a href="#cta" data-cta="hero_readiness_walkthrough" class="btn-primary px-5 py-3 text-sm">Get your 20-min readiness walkthrough</a>
+              <a href="#lead-magnet" data-cta="hero_download_checklist" class="btn-secondary px-5 py-3 text-sm">Download free checklist</a>
             </div>
             <p class="mt-4 text-sm text-slate-500">Start with one team • Prove ROI • Scale across business units</p>
             <p class="mt-2 text-xs text-slate-500">No long contracts • Pilot-first rollout • Built for UK engineering teams</p>
@@ -316,8 +316,8 @@
           <h2 class="mt-2 text-3xl font-bold tracking-tight">UK-SPEC Readiness Checklist (for engineering teams)</h2>
           <p class="mt-3 max-w-3xl text-slate-600">Use this practical checklist to assess competency evidence quality, manager review cadence, and candidate readiness before your next CEng/IEng submission cycle.</p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="mailto:hello@example.com?subject=Send%20me%20the%20UK-SPEC%20Readiness%20Checklist" class="btn-primary px-5 py-3 text-sm">Email me the checklist</a>
-            <a href="#cta" class="btn-secondary px-5 py-3 text-sm">Or book a walkthrough</a>
+            <a href="mailto:hello@example.com?subject=Send%20me%20the%20UK-SPEC%20Readiness%20Checklist" data-cta="leadmagnet_email_checklist" class="btn-primary px-5 py-3 text-sm">Email me the checklist</a>
+            <a href="#cta" data-cta="leadmagnet_book_walkthrough" class="btn-secondary px-5 py-3 text-sm">Or book a walkthrough</a>
           </div>
         </div>
       </section>
@@ -345,8 +345,8 @@
           <h2 class="text-3xl font-bold tracking-tight">Ready to improve your professional registration pipeline?</h2>
           <p class="mx-auto mt-3 max-w-2xl text-slate-300">Book a short demo and see how your team can move from ad-hoc notes to a clear UK-SPEC evidence journey.</p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href="mailto:hello@example.com?subject=UK-SPEC%20CPD%20Portal%20Demo" class="btn-secondary px-6 py-3 text-sm">Book your demo</a>
-            <a href="mailto:hello@example.com?subject=Request%20pilot%20proposal%20for%20UK-SPEC%20CPD" class="rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">Request pilot proposal</a>
+            <a href="mailto:hello@example.com?subject=UK-SPEC%20CPD%20Portal%20Demo" data-cta="footer_book_demo" class="btn-secondary px-6 py-3 text-sm">Book your demo</a>
+            <a href="mailto:hello@example.com?subject=Request%20pilot%20proposal%20for%20UK-SPEC%20CPD" data-cta="footer_request_pilot_proposal" class="rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">Request pilot proposal</a>
           </div>
         </div>
       </section>
@@ -361,6 +361,36 @@
 
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      function trackCtaClick(name, href) {
+        const payload = {
+          event_category: "engagement",
+          event_label: href || "",
+          value: 1
+        };
+
+        if (typeof window.gtag === "function") {
+          window.gtag("event", name, payload);
+        }
+
+        if (typeof window.plausible === "function") {
+          window.plausible("CTA Click", { props: { cta: name, href: href || "" } });
+        }
+
+        if (typeof window.umami !== "undefined" && typeof window.umami.track === "function") {
+          window.umami.track("cta_click", { cta: name, href: href || "" });
+        }
+
+        if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+          console.log("[cta-track]", name, href || "");
+        }
+      }
+
+      document.querySelectorAll("[data-cta]").forEach((el) => {
+        el.addEventListener("click", () => {
+          trackCtaClick(el.getAttribute("data-cta"), el.getAttribute("href"));
+        });
+      });
     </script>
   </body>
 </html>
