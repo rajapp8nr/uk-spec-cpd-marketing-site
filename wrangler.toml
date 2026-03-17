@@ -7,8 +7,6 @@ directory = "."
 binding = "ASSETS"
 
 [vars]
-FROM_EMAIL = "noreply@yourdomain.com"
-DEST_EMAIL = "you@yourdomain.com"
 ALLOWED_ORIGINS = "https://cpdpath.com,https://www.cpdpath.com"
 
 [observability]
