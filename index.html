@@ -220,7 +220,7 @@
           <a href="#faq" class="hover:text-slate-900">FAQ</a>
           <a href="/blog/what-is-cpd" class="hover:text-slate-900">Blog</a>
         </nav>
-        <a href="#cta" data-cta="nav_book_demo" class="btn-primary px-4 py-2 text-sm">Book a Demo</a>
+        <a href="/thank-you.html?source=demo" data-cta="nav_book_demo" class="btn-primary px-4 py-2 text-sm js-book-demo">Book a Demo</a>
       </div>
       <div class="border-t border-slate-100 px-6 py-2 md:hidden">
         <nav class="flex items-center gap-4 overflow-x-auto whitespace-nowrap text-sm text-slate-600">
@@ -531,12 +531,53 @@
           <h2 class="text-3xl font-bold tracking-tight">Ready to improve your professional registration pipeline?</h2>
           <p class="mx-auto mt-3 max-w-2xl text-slate-300">Book a short demo and see how your team can move from ad-hoc notes to a clear UK-SPEC evidence journey.</p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href="/thank-you.html?source=demo" data-cta="footer_book_demo" class="btn-secondary px-6 py-3 text-sm">Book a Demo</a>
+            <a href="/thank-you.html?source=demo" data-cta="footer_book_demo" class="btn-secondary px-6 py-3 text-sm js-book-demo">Book a Demo</a>
             <a href="/thank-you.html?source=pilot_proposal" data-cta="footer_request_pilot_proposal" class="rounded-lg border border-slate-600 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">Request pilot proposal</a>
           </div>
         </div>
       </section>
     </main>
+
+    <div id="book-demo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 px-4">
+      <div class="w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
+        <div class="mb-4 flex items-start justify-between gap-4">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">Book a Demo</h3>
+            <p class="mt-1 text-sm text-slate-600">Tell us a bit about your team and we’ll get in touch.</p>
+          </div>
+          <button id="book-demo-close" type="button" class="rounded-md px-2 py-1 text-slate-500 hover:bg-slate-100" aria-label="Close">✕</button>
+        </div>
+
+        <form id="book-demo-form" class="space-y-3">
+          <div>
+            <label class="mb-1 block text-sm font-medium text-slate-700" for="demo-name">Name</label>
+            <input id="demo-name" name="name" required class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500" />
+          </div>
+
+          <div>
+            <label class="mb-1 block text-sm font-medium text-slate-700" for="demo-email">Work email</label>
+            <input id="demo-email" name="email" type="email" required class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500" />
+          </div>
+
+          <div>
+            <label class="mb-1 block text-sm font-medium text-slate-700" for="demo-company">Company</label>
+            <input id="demo-company" name="company" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500" />
+          </div>
+
+          <div>
+            <label class="mb-1 block text-sm font-medium text-slate-700" for="demo-message">Message</label>
+            <textarea id="demo-message" name="message" rows="4" class="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm outline-none focus:border-slate-500" placeholder="Anything specific you want covered in the demo?"></textarea>
+          </div>
+
+          <div class="cf-turnstile" data-sitekey="YOUR_TURNSTILE_SITE_KEY"></div>
+
+          <div class="flex items-center gap-3 pt-2">
+            <button id="book-demo-submit" type="submit" class="btn-primary px-5 py-2 text-sm">Submit request</button>
+            <p id="book-demo-status" class="text-sm text-slate-600"></p>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <footer class="border-t border-slate-200 bg-white">
       <div class="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
@@ -596,6 +637,80 @@
           trackCtaClick(el.getAttribute("data-cta"), el.getAttribute("href"));
         });
       });
+
+      const modal = document.getElementById("book-demo-modal");
+      const modalClose = document.getElementById("book-demo-close");
+      const demoForm = document.getElementById("book-demo-form");
+      const demoStatus = document.getElementById("book-demo-status");
+      const demoSubmit = document.getElementById("book-demo-submit");
+
+      function openDemoModal() {
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+      }
+
+      function closeDemoModal() {
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+      }
+
+      document.querySelectorAll(".js-book-demo").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault();
+          openDemoModal();
+        });
+      });
+
+      modalClose.addEventListener("click", closeDemoModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeDemoModal();
+      });
+
+      demoForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        demoStatus.textContent = "Submitting...";
+        demoSubmit.disabled = true;
+
+        const formData = new FormData(demoForm);
+        const turnstileToken = formData.get("cf-turnstile-response");
+
+        const payload = {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          company: formData.get("company"),
+          message: formData.get("message"),
+          turnstileToken,
+        };
+
+        try {
+          const res = await fetch("/api/book-demo", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          const result = await res.json();
+
+          if (!res.ok || !result.ok) {
+            demoStatus.textContent = "Could not submit. Please try again.";
+            return;
+          }
+
+          demoStatus.textContent = "Thanks — request received.";
+          demoForm.reset();
+          if (window.turnstile) window.turnstile.reset();
+
+          setTimeout(() => {
+            closeDemoModal();
+            demoStatus.textContent = "";
+          }, 1200);
+        } catch (_) {
+          demoStatus.textContent = "Network error. Please try again.";
+        } finally {
+          demoSubmit.disabled = false;
+        }
+      });
     </script>
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </body>
 </html>
