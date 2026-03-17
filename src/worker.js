@@ -13,14 +13,16 @@ export default {
 }
 
 async function handleBookDemo(request, env) {
-  const corsHeaders = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-  }
+  const origin = request.headers.get('Origin') || ''
+  const corsHeaders = buildCorsHeaders(origin, env)
 
   if (request.method === 'OPTIONS') {
+    if (!corsHeaders) return json({ ok: false, error: 'origin not allowed' }, 403)
     return new Response(null, { status: 204, headers: corsHeaders })
+  }
+
+  if (!corsHeaders) {
+    return json({ ok: false, error: 'origin not allowed' }, 403)
   }
 
   if (request.method !== 'POST') {
@@ -113,4 +115,27 @@ function json(payload, status = 200, extraHeaders = {}) {
       ...extraHeaders,
     },
   })
+}
+
+function buildCorsHeaders(origin, env) {
+  const configured = (env.ALLOWED_ORIGINS || '')
+    .split(',')
+    .map((v) => v.trim())
+    .filter(Boolean)
+
+  if (configured.length === 0) {
+    // Fail-closed if not configured.
+    return null
+  }
+
+  if (!origin || !configured.includes(origin)) {
+    return null
+  }
+
+  return {
+    'Access-Control-Allow-Origin': origin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    Vary: 'Origin',
+  }
 }
