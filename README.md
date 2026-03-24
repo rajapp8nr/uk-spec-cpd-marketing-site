@@ -53,3 +53,30 @@ In Cloudflare dashboard, attach `cpdpath.com` to this Worker route.
 - `/terms.html`
 - `/contact.html`
 - `/thank-you.html` (conversion page, noindex)
+
+## AI copy optimizer (GitHub Actions)
+
+This repo includes an automated copy optimization workflow:
+
+- Workflow: `.github/workflows/copy-optimizer.yml`
+- Script: `scripts/copy_optimizer.rb`
+- Output report: `copy/last-run.json`
+
+### What it does
+
+- Runs weekly (and on manual dispatch)
+- Improves key homepage copy blocks in `index.html`
+- Opens a PR with suggested changes for review
+
+### Required secrets/variables
+
+Set at repo level in GitHub:
+
+- One API key secret:
+  - `OPENROUTER_API_KEY` **or** `OPENAI_API_KEY` **or** `AI_API_KEY`
+- Optional variables:
+  - `AI_BASE_URL` (defaults to `https://openrouter.ai/api/v1`)
+  - `AI_MODEL` (defaults to `openai/gpt-4o-mini`)
+  - `AI_HTTP_REFERER` (optional, useful for OpenRouter ranking)
+
+If no key is set, the workflow exits safely without changing files.
