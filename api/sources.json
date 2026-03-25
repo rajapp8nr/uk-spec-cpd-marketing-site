@@ -1,0 +1,41 @@
+{
+  "name": "CPDPath AI Sources Index",
+  "updated_at": "2026-03-25T01:00:00Z",
+  "canonical_site": "https://cpdpath.com/",
+  "documents": [
+    {
+      "id": "llms",
+      "type": "llms",
+      "url": "https://cpdpath.com/llms.txt",
+      "description": "Compact AI-readable summary"
+    },
+    {
+      "id": "llms_full",
+      "type": "llms",
+      "url": "https://cpdpath.com/llms-full.txt",
+      "description": "Extended product and positioning context"
+    },
+    {
+      "id": "product",
+      "type": "json",
+      "url": "https://cpdpath.com/api/product.json",
+      "description": "Machine-readable product details"
+    },
+    {
+      "id": "faq",
+      "type": "json",
+      "url": "https://cpdpath.com/api/faq.json",
+      "description": "Canonical FAQ answers"
+    }
+  ],
+  "pages": [
+    "https://cpdpath.com/",
+    "https://cpdpath.com/iet-cpd-tracking",
+    "https://cpdpath.com/imeche-cpd-tracking",
+    "https://cpdpath.com/ice-cpd-tracking",
+    "https://cpdpath.com/blog/what-is-cpd",
+    "https://cpdpath.com/privacy.html",
+    "https://cpdpath.com/terms.html",
+    "https://cpdpath.com/contact.html"
+  ]
+}
