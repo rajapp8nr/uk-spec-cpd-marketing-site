@@ -32,8 +32,8 @@
     <noscript><link rel="stylesheet" href="/assets/tailwind.css" /></noscript>
     <style>
       body { font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
-      .btn-primary { border-radius: 9999px; background: #0f172a; color: #fff; font-weight: 600; }
-      .btn-primary:hover { background: #1e293b; }
+      .btn-primary { border-radius: 9999px; background: #2563eb; color: #fff; font-weight: 600; }
+      .btn-primary:hover { background: #1d4ed8; }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,14 +43,20 @@
   <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 </head>
   <body class="bg-slate-50 text-slate-900 antialiased">
-    <main class="mx-auto flex min-h-screen max-w-3xl items-center px-6 py-16">
+    <header class="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        <a href="/" class="flex items-center"><img src="/assets/branding/cpdpath-kit/svg/CPDPATH-01.svg" class="h-8 w-auto" alt="CPDPath"/></a>
+        <a href="/" class="text-sm font-medium text-slate-600 hover:text-slate-900">Back to home</a>
+      </div>
+    </header>
+    <main class="mx-auto flex min-h-[calc(100vh-65px)] max-w-3xl items-center px-6 py-16">
       <section class="w-full rounded-2xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
         <p class="text-xs font-semibold uppercase tracking-wide text-slate-500">Submission received</p>
         <h1 class="mt-2 text-3xl font-bold tracking-tight">Thanks — we’ve got your request.</h1>
-        <p class="mt-4 text-slate-600">We’ll follow up shortly with the next step. If this is urgent, email <a class="font-medium text-slate-900 underline" href="mailto:hello@example.com">hello@example.com</a>.</p>
+        <p class="mt-4 text-slate-600">We’ll follow up shortly with the next step. If this is urgent, email <a class="font-medium text-slate-900 underline" href="mailto:hello@cpdpath.com">hello@cpdpath.com</a>.</p>
         <div class="mt-8 flex flex-wrap gap-3">
           <a href="/" class="btn-primary px-5 py-3 text-sm">Back to homepage</a>
-          <a href="mailto:hello@example.com" class="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100">Email support</a>
+          <a href="mailto:hello@cpdpath.com" class="rounded-full border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-100">Email support</a>
         </div>
       </section>
     </main>

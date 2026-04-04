@@ -50,22 +50,37 @@
 
       <div class="mt-8 space-y-6 rounded-2xl border border-slate-200 bg-white p-6">
         <section>
-          <h2 class="text-lg font-semibold">Use of site</h2>
+          <h2 class="text-base font-semibold uppercase tracking-wide text-slate-500">Use of site</h2>
           <p class="mt-2 text-sm text-slate-700">By using this website, you agree to use it lawfully and not misuse the service or content.</p>
         </section>
-        <section>
-          <h2 class="text-lg font-semibold">Intellectual property</h2>
+        <section class="border-t border-slate-100 pt-6">
+          <h2 class="text-base font-semibold uppercase tracking-wide text-slate-500">Intellectual property</h2>
           <p class="mt-2 text-sm text-slate-700">Content and branding on this site are owned by CPDPath unless otherwise stated.</p>
         </section>
-        <section>
-          <h2 class="text-lg font-semibold">Liability</h2>
+        <section class="border-t border-slate-100 pt-6">
+          <h2 class="text-base font-semibold uppercase tracking-wide text-slate-500">Liability</h2>
           <p class="mt-2 text-sm text-slate-700">Information is provided in good faith. We do not guarantee uninterrupted availability or suitability for every use case.</p>
         </section>
-        <section>
-          <h2 class="text-lg font-semibold">Contact</h2>
-          <p class="mt-2 text-sm text-slate-700">Questions about these terms: <a class="underline" href="mailto:hello@cpdpath.com">hello@cpdpath.com</a>.</p>
+        <section class="border-t border-slate-100 pt-6">
+          <h2 class="text-base font-semibold uppercase tracking-wide text-slate-500">Contact</h2>
+          <p class="mt-2 text-sm text-slate-700">Questions about these terms: <a class="text-blue-600 hover:underline" href="mailto:hello@cpdpath.com">hello@cpdpath.com</a>.</p>
         </section>
       </div>
     </main>
+    <footer class="border-t border-slate-200 bg-white mt-12">
+      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="year"></span> CPDPath. All rights reserved.</p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="/iet-cpd-tracking" class="hover:text-slate-900">IET</a>
+          <a href="/imeche-cpd-tracking" class="hover:text-slate-900">IMechE</a>
+          <a href="/ice-cpd-tracking" class="hover:text-slate-900">ICE</a>
+          <a href="/blog/what-is-cpd" class="hover:text-slate-900">Blog</a>
+          <a href="/privacy.html" class="hover:text-slate-900">Privacy</a>
+          <a href="/terms.html" class="hover:text-slate-900">Terms</a>
+          <a href="/contact.html" class="hover:text-slate-900">Contact</a>
+        </div>
+      </div>
+    </footer>
+    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
   </body>
 </html>
